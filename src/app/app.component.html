@@ -1,3 +1,29 @@
 <div id="application">
+  <form (submit)="getRepos()">
+    <mat-form-field>
+      <input matInput placeholder="Username..." [(ngModel)]="username" name="username">
+    </mat-form-field>
+  </form>
 
+  <div *ngIf="error" id="errorContainer">
+    <h3>Status: {{error?.status}}</h3>
+    <p>{{error?.message}}</p>
+  </div>
+
+  <div id="repositoryList">
+    <h2 *ngIf="repositories">Total: {{repositories?.length}}</h2>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let repo of repositories">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{repo.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{repo.description | maxCharacter: 36 }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        {{repo.description}}
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
 </div>

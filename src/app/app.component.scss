@@ -1,5 +1,19 @@
 #application {
-  width: 100vw;
-  height: 100vh;
-  background-color: #4c4c4c;
+  padding: 24px 48px;
+
+  mat-expansion-panel {
+  }
+
+  mat-expansion-panel {
+    padding: 12px 24px;
+    margin-top: 12px;
+
+    mat-expansion-panel-header {
+      font-size: 24px;
+    }
+
+    mat-panel-description {
+      max-width: 60%;
+    }
+  }
 }
